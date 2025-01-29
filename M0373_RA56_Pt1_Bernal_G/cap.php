@@ -7,4 +7,4 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 style="color:purple; text-align:center;">PHP realitzat per Guillem Bernal</h1>
+    <h1 style="color:green; text-align:center;">PHP realitzat per Guillem Bernal</h1>
