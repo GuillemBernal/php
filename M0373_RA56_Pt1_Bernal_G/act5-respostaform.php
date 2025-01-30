@@ -3,7 +3,7 @@ function felicitarAniversariEspelmes($edat) {
     $img = "<img src='espelma.jpg' width='50' height='100'>";
     for ($i = 0; $i < $edat; $i++) {
         echo $img;
-        if (($i + 1) % 10 == 0) echo "<br>"; // Salto de línea cada 10 velas
+        if (($i + 1) % 10 == 0) echo "<br>";
     }
 }
 
