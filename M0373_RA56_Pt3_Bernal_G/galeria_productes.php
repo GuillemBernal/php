@@ -20,4 +20,4 @@ foreach ($obj as $prod) {
 }
 ?>
 
-<a class="example-image.link" href="<?php echo $src_image; ?>" data-lightbox=
+<a class="example-image.link" href="<?php echo $src_image; ?>"
