@@ -1,27 +1,20 @@
 <?php include("cap.php");?>
-<?php include("connexio_bbdd.php");?>
+<?php include("connexio_curl_word.php");?>
 
 <?php
-$sql = "SELECT * FROM usuaris";
-$result = $conn->query($sql);
+
 ?>
 
 <div class="container">
-    <h2>Exportar dades a Excel amb PHP</h2>
-<?php $html = "
-        <table class='table table-stripped table-bordered'>
-            <tr>
-                <th>Usuari</th>
-                <th>Correu</th>
-                <th>Nom</th>
-            </tr>
-            <tbody>";
-
-            if ($result->num_rows > 0) {
-                while ($obj = $result->fetch_object()) {
-                    $html .= " <tr><td>$obj->usuari</td> <td>$obj->correu</td><td>$obj->nom $obj->cognoms</td>";
-            }
-        }    
+    <h2>Exportar Json amb PHP</h2>
+            <?php foreach ($obj as $post): ?>
+                <div class="post">
+                    <h2><?php echo htmlspecialchars($post->title->rendered); ?></h2>
+                    <p><strong>ID:</strong> <?php echo $post->id; ?></p>
+                    <p><strong>Data:</strong> <?php echo $post->date; ?></p>
+                    <p><?php echo substr(strip_tags($post->content->rendered), 0, 200) . '...'; ?></p>
+                </div>
+            <?php endforeach; ?>   
             $html .= "</tbody>
             </table>
 </div>";

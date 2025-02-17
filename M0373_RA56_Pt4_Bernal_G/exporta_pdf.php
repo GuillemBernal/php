@@ -3,7 +3,7 @@ if (isset($_POST["taula"])) {
     $taula = $_POST["taula"];
     require_once('vendor/autoload.php');
     if (!empty($taula)) {
-        $fitxer="usuaris.pdf";
+        $fitxer="posts.pdf";
         $mpdf=new \Mpdf\Mpdf();
         $taula='<style>
         body { font-family: Arial, sans-serif; }
@@ -18,3 +18,4 @@ if (isset($_POST["taula"])) {
     }
     exit;
 }
+?>
