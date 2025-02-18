@@ -1,24 +1,25 @@
 <?php include("cap.php");?>
 <?php include("connexio_curl_word.php");?>
-
-<?php
-
-?>
+<?php array_multisort(array_column($obj, 'id'), SORT_ASC, $obj);?>
 
 <div class="container">
-    <h2>Exportar Json amb PHP</h2>
-            <?php foreach ($obj as $post): ?>
-                <div class="post">
-                    <h2><?php echo htmlspecialchars($post->title->rendered); ?></h2>
-                    <p><strong>ID:</strong> <?php echo $post->id; ?></p>
-                    <p><strong>Data:</strong> <?php echo $post->date; ?></p>
-                    <p><?php echo substr(strip_tags($post->content->rendered), 0, 200) . '...'; ?></p>
-                </div>
-            <?php endforeach; ?>   
+    <h2>Exportar dades a Excel amb PHP</h2>
+<?php $html = "
+        <table class='table table-stripped table-bordered'>
+            <tr>
+                <th>ID</th>
+                <th>Data</th>
+                <th>Status</th>
+            </tr>
+            <tbody>";
+
+            foreach ($obj as $post) {
+                $html .= " <tr><td>{$post->id}</td> <td>{$post->date}</td><td>{$post->status->rendered}</td>";
+            }
             $html .= "</tbody>
             </table>
 </div>";
-    
+
 print($html);
 ?>
 <div class="well-sm col-sm-12">
@@ -37,3 +38,4 @@ print($html);
 
     </div>
 </div>
+<?php include("peu.php");?>
