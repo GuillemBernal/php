@@ -18,15 +18,16 @@ $html = "
 
 foreach ($obj as $product) {
     $id = $product->id;
-    $nom = $product->name;
-    $preu = $product->price;
-    $imatge = $product->images[0]->src;
+    $nom = $product->title->rendered ?? 'Sense nom';
+    $preu = $product->price ?? 'Preu no disponible';
+//    $imatge = isset($product->_links->{'wp:featuredmedia'}[0]->href) ? $product->_links->{'wp:featuredmedia'}[0]->href : 'imatge_no_disponible.jpg';
+
 
     $html .= "<tr>
                 <td>{$id}</td> 
                 <td>{$nom}</td> 
                 <td>{$preu} €</td>
-                <td><img src='{$imatge}' width='50'></td>
+                <td><img src='{}' width='50'></td>
               </tr>";
 }
 $html .= "</tbody></table>";
