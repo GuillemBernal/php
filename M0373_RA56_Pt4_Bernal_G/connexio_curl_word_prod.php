@@ -10,6 +10,6 @@
     curl_close($client);
 
     $obj=json_decode($json);
-    print_r($obj);
+    //print_r($obj);
 
 ?>
